@@ -5,18 +5,37 @@ using UnityEngine;
 
 public class MoveScript : MonoBehaviour
 {
-    public float speedAngle;
-    public float speed;
-    public Transform rotate;
-
-    private void FixedUpdate()
+    public GameObject MainCamera; //аттач главной камеры для получения вектора направления движения
+    public GameObject Player; //Объект игрок
+    public float speed; //Скорость перемещения
+    
+    private Rigidbody rb; //Физическое тело
+    void Start()
     {
+        rb = Player.GetComponent<Rigidbody>();
+    }
+    void FixedUpdate()
+    {
+        //Двигаемся вперед по вектору камеры
         if (Input.GetKey(KeyCode.W))
         {
-            var v = new Vector3(0, 0, 1);
-            v.x = (float)(Math.Sin(rotate.rotation.eulerAngles.y * Math.PI / 180));
-            v.z = (float)(Math.Cos(rotate.rotation.eulerAngles.y * Math.PI / 180));
-            transform.position -= v * speed;
+            rb.AddForce(MainCamera.transform.forward * speed * Time.deltaTime);
+        }
+        //Движение назад по вектору камеры
+        if (Input.GetKey(KeyCode.S))
+        {
+            rb.AddForce(-MainCamera.transform.forward * speed * Time.deltaTime);
+        }
+
+        //Движение вправо по вектору камеры
+        if (Input.GetKey(KeyCode.D))
+        {
+            rb.AddForce(MainCamera.transform.right * speed * Time.deltaTime);
+        }
+        //Движение влево по вектору камеры
+        if (Input.GetKey(KeyCode.A))
+        {
+            rb.AddForce(-MainCamera.transform.right * speed * Time.deltaTime);
         }
     }
 }

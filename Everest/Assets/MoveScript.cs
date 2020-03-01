@@ -10,10 +10,12 @@ public class MoveScript : MonoBehaviour
     public float speed; //Скорость перемещения
     
     private Rigidbody rb; //Физическое тело
+
     void Start()
     {
         rb = Player.GetComponent<Rigidbody>();
     }
+
     void FixedUpdate()
     {
         //Двигаемся вперед по вектору камеры

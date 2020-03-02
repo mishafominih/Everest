@@ -160,9 +160,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b93b2c0701f8d547aa40095a8c17031, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MainCamera: {fileID: 1001917257}
-  Player: {fileID: 1214121}
-  speed: 6000
+  MainCamera: {fileID: 1018177536}
+  speed: 0.25
+  slowRotate: 1
 --- !u!1 &103260839
 GameObject:
   m_ObjectHideFlags: 0
@@ -256,7 +256,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 288041959}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: -3, y: 1.5, z: 4}
+  m_LocalPosition: {x: 0, y: 1.5, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1001917258}
@@ -270,6 +270,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1922111658794225521, guid: de36bb33650273f42b2d97cd792f00ae,
+        type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1922111658794225521, guid: de36bb33650273f42b2d97cd792f00ae,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 6d40839d0f5a4f947a834eb7155c7aea, type: 2}
     - target: {fileID: 1922111658801527985, guid: de36bb33650273f42b2d97cd792f00ae,
         type: 3}
       propertyPath: m_Name

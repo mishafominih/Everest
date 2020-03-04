@@ -197,7 +197,7 @@ ModelImporter:
       name: wolf_rig|running
       takeName: wolf_rig|running
       firstFrame: 0
-      lastFrame: 19
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -224,8 +224,8 @@ ModelImporter:
     - serializedVersion: 16
       name: wolf_rig|sniffing
       takeName: wolf_rig|sniffing
-      firstFrame: 0
-      lastFrame: 41
+      firstFrame: 10
+      lastFrame: 31
       wrapMode: 0
       orientationOffsetY: 0
       level: 0

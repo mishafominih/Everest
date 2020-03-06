@@ -17,8 +17,9 @@ public class WolfAnimation : MonoBehaviour
 		anim = GetComponent<Animator>();
 	}
 	
-    public void GetAnimation(List<StateAnimation> Animate, int index)
+    public void GetAnimation(List<StateAnimation> Animate)
     {
+		var index = GetComponent<WolfMoveLogic>().index;
 		if(index >= Animate.Count)
 		{
 			anim.Play("wolf_rig|idle2");

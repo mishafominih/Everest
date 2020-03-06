@@ -9,128 +9,41 @@ public class VolfMove : MonoBehaviour
 	[SerializeField] public List<Vector3> road = new List<Vector3>();
 	[SerializeField] public List<float> timeWait = new List<float>();
 	[SerializeField] public List<StateAnimation> Animate = new List<StateAnimation>();
-	[SerializeField] bool loop = false;
-	[SerializeField] float speed = 0.02f;
-
-	int index;
-	bool moveNext = false;
-	bool end = false;
-	float timer = 0;
-	bool doing = true;
-	Rigidbody rb;
-	bool Rotate = true;
-	bool follow = false;
-	Vector3 target;
+	[SerializeField] public bool loop = false;
+	[SerializeField] public float speed = 0.02f;
+	WolfMoveLogic logic;
+	WolfAnimation animation;
+	
+	
 	void Start()
     {
-		rb = GetComponent<Rigidbody>();
+		logic = GetComponent<WolfMoveLogic>();
+		animation = GetComponent<WolfAnimation>();
 	}
 
 	void FixedUpdate()
 	{
-		if (timer <= GetWait() && doing == false)//включение таймера
+		if (logic.Run())
 		{
-			timer += Time.deltaTime;
-			GetComponent<WolfAnimation>().GetAnimation(Animate, index);
-		}
-		else
-			doing = true;
-		if (end == false && doing == true)
-		{
-			Move();//логика для движения
-			GetComponent<WolfAnimation>().GetAnimation();
+			if (logic.follow == false) logic.Move(logic.GetPath());//логика для движения
+			else logic.Move(logic.GetTarget());
+			animation.GetAnimation();
 		}
 		else
 		{
-			rb.velocity = new Vector3(0, 0, 0);
-			if (end == true)
-				GetComponent<WolfAnimation>().GetAnimation(Animate, index);
+			GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+			animation.GetAnimation(Animate);
 		}
 	}
 
-	void Move()
-	{
-		var path = new Vector3();
-		if (follow == false) path = GetPath();
-		else path = UpdateValue();
-		float deltaX = path.x - transform.position.x;
-		float deltaZ = path.z - transform.position.z;
-		if (Mathf.Abs(deltaX) >= 0.3 || Mathf.Abs(deltaZ) >= 0.3)
-		{
-			if (end != true)
-			{
-				float angle = Mathf.Atan2(deltaZ, deltaX);
-				if (Rotate)
-					rb.rotation = Quaternion.Euler(rb.rotation.x, 90 - angle * 180 / Mathf.PI, 0);
-				transform.position += new Vector3(speed * Mathf.Cos(angle), 0,
-					speed * Mathf.Sin(angle));
-				moveNext = false;
-				Rotate = false;
-			}
-		}
-		else
-		{
-			if (follow == true)
-			{
-				Destroy(GameObject.FindGameObjectsWithTag("Player")[0]);
-				follow = false;
-			}
-			else
-			{
-				moveNext = true;
-				doing = false;
-				timer = 0;
-				Rotate = true;
-			}
-		}
-	}
-
-	Vector3 GetPath()
-	{
-		if(moveNext == true)
-		{
-			if (road.Count <= index + 1)
-			{
-				if (loop == false)
-				{
-					end = true;
-					return new Vector3();
-				}
-				index = 0;
-				return road[index];
-			}
-			index++;
-			return road[index];
-		}
-		if (road.Count == 0)
-		{
-			end = true;
-			return new Vector3();
-		}
-		return road[index];
-	}
-
-	float GetWait()
-	{
-		if(index <= timeWait.Count)
-		{
-			return timeWait[index];
-		}
-		return 0;
-	}
-
-	private void OnTriggerEnter(Collider other)
+	
+	public void OnTriggerEnter(Collider other)
 	{
 		if(other.tag == "Player")
 		{
-			follow = true;
-			end = false;
+			logic.follow = true;
+			logic.end = false;
+			logic.doing = true;
 		}
-	}
-
-	Vector3 UpdateValue()
-	{
-		Rotate = true;
-		return GameObject.FindGameObjectsWithTag("Player")[0].transform.position;
 	}
 }

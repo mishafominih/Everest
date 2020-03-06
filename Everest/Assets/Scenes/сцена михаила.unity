@@ -501,7 +501,7 @@ PrefabInstance:
     - target: {fileID: 3587628926966714746, guid: bf040337d3f574441bafef00f26b2c38,
         type: 3}
       propertyPath: timeWait.Array.data[0]
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3587628926966714746, guid: bf040337d3f574441bafef00f26b2c38,
         type: 3}
@@ -521,7 +521,7 @@ PrefabInstance:
     - target: {fileID: 3587628926966714746, guid: bf040337d3f574441bafef00f26b2c38,
         type: 3}
       propertyPath: Animate.Array.data[0]
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3587628926966714746, guid: bf040337d3f574441bafef00f26b2c38,
         type: 3}

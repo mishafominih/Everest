@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum StateAnimation
+{
+	Run,
+	Stay,
+	sniff,
+	sit
+}
 public class WolfAnimation : MonoBehaviour
 {
 	Animator anim;

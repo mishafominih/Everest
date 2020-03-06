@@ -3,13 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum StateAnimation
-{
-	Run,
-	Stay,
-	sniff,
-	sit
-}
 
 public class VolfMove : MonoBehaviour
 {
@@ -26,6 +19,8 @@ public class VolfMove : MonoBehaviour
 	bool doing = true;
 	Rigidbody rb;
 	bool Rotate = true;
+	bool follow = false;
+	Vector3 target;
 	void Start()
     {
 		rb = GetComponent<Rigidbody>();
@@ -55,10 +50,12 @@ public class VolfMove : MonoBehaviour
 
 	void Move()
 	{
-		var path = GetPath();
+		var path = new Vector3();
+		if (follow == false) path = GetPath();
+		else path = UpdateValue();
 		float deltaX = path.x - transform.position.x;
 		float deltaZ = path.z - transform.position.z;
-		if (Mathf.Abs(deltaX) >= 0.1 || Mathf.Abs(deltaZ) >= 0.1)
+		if (Mathf.Abs(deltaX) >= 0.3 || Mathf.Abs(deltaZ) >= 0.3)
 		{
 			if (end != true)
 			{
@@ -73,10 +70,18 @@ public class VolfMove : MonoBehaviour
 		}
 		else
 		{
-			moveNext = true;
-			doing = false;
-			timer = 0;
-			Rotate = true;
+			if (follow == true)
+			{
+				Destroy(GameObject.FindGameObjectsWithTag("Player")[0]);
+				follow = false;
+			}
+			else
+			{
+				moveNext = true;
+				doing = false;
+				timer = 0;
+				Rotate = true;
+			}
 		}
 	}
 
@@ -112,5 +117,20 @@ public class VolfMove : MonoBehaviour
 			return timeWait[index];
 		}
 		return 0;
+	}
+
+	private void OnTriggerEnter(Collider other)
+	{
+		if(other.tag == "Player")
+		{
+			follow = true;
+			end = false;
+		}
+	}
+
+	Vector3 UpdateValue()
+	{
+		Rotate = true;
+		return GameObject.FindGameObjectsWithTag("Player")[0].transform.position;
 	}
 }

@@ -38,7 +38,7 @@ public class MoveScript : MonoBehaviour
         else if (Input.GetKey(KeyCode.S))//Движение назад по вектору камеры
         {
             isMove = true;
-            anim.Play("ArmatureAction");
+            anim.Play("MirrorArmatureAction");
             transform.position += moveVector * speed;
         }
         else

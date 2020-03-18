@@ -38,7 +38,7 @@ public class WolfMoveLogic : MonoBehaviour
 	{
 		float deltaX = target.x - transform.position.x;
 		float deltaZ = target.z - transform.position.z;
-		if (Mathf.Abs(deltaX) >= 0.3 || Mathf.Abs(deltaZ) >= 0.3)
+		if (Mathf.Abs(deltaX) >= 0.5 || Mathf.Abs(deltaZ) >= 0.5)
 		{
 			if (end != true)
 			{

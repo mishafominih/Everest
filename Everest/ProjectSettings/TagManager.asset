@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Terrarian
+  - PlayerCamera
+  - Canvas
+  - Energy
+  - Oxygen
+  - Mount
   layers:
   - Default
   - TransparentFX

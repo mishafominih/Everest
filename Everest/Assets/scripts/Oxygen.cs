@@ -5,16 +5,20 @@ using UnityEngine.UI;
 
 public class Oxygen : MonoBehaviour
 {
-    public float oxygen;
-    public Slider slider;
-    // Start is called before the first frame update
-    void Start()
-    {
-        slider.value = oxygen;
-    }
-        
-    void Update()
-    {
-        
-    }
+	float oxygen;
+
+	public Oxygen(float oxygen)
+	{
+		this.oxygen = oxygen;
+	}
+
+    public void UpdateOxygen(float dOxygen) 
+	{
+		oxygen += dOxygen;
+	}
+
+	public void UpdateSlider(Slider slider)
+	{
+		slider.value = oxygen;
+	}
 }

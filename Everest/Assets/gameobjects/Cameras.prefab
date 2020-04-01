@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2587433776420052428}
   m_Layer: 0
   m_Name: FreeLookCameraRig
-  m_TagString: Untagged
+  m_TagString: PlayerCamera
   m_Icon: {fileID: -215833656, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Target: {fileID: 3053245619600118138, guid: 1975c8d8903ef684e85de8d5d036d06f,
     type: 3}
-  m_AutoTargetPlayer: 0
+  m_AutoTargetPlayer: 1
   m_UpdateType: 0
   m_MoveSpeed: 5
   m_TurnSpeed: 2.75
@@ -135,7 +135,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.62552905, g: 0.684092, b: 0.7761194, a: 0.019607844}
+  m_BackGroundColor: {r: 0.627451, g: 0.6820764, b: 0.7764706, a: 0.019607844}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -246,7 +246,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2587433778070089431}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
-  m_LocalPosition: {x: 0, y: 1.5, z: 4}
+  m_LocalPosition: {x: 0, y: 0.8, z: 7.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2587433777139158177}

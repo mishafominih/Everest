@@ -5,18 +5,20 @@ using UnityEngine.UI;
 
 public class Energy : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public float energy;
-    public Slider slider;
+	float energy;
 
-    void Start()
-    {
-        slider.value = energy;
-    }
+	public Energy(float energy)
+	{
+		this.energy = energy;
+	}
 
-    // Update is called once per frame
-    void Update()
-    {
+    public void UpdateEnergy(float dEnergy)
+	{
+		energy += dEnergy;
+	}
 
-    }
+	public void UpdateSlider(Slider slider)
+	{
+		slider.value = energy;
+	}
 }

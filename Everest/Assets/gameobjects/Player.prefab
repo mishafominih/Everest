@@ -1896,8 +1896,10 @@ GameObject:
   - component: {fileID: 3053245619600118138}
   - component: {fileID: 3053245619609976474}
   - component: {fileID: 8566311026534991003}
-  - component: {fileID: 3836452472706095326}
+  - component: {fileID: 2722564493580654566}
   - component: {fileID: 7672250148822112916}
+  - component: {fileID: 39001714581289674}
+  - component: {fileID: 3836452472706095326}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1956,6 +1958,51 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &2722564493580654566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3053245619600608602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2a48471a9097e90479c3be3593343792, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Camera: {fileID: 2587433777956958891, guid: db8967e07bc8acb4694552481b4b8b9e, type: 3}
+  Canvas: {fileID: 3095715098870880122, guid: 29424ce647e5ba048b9d4a43679a7fde, type: 3}
+--- !u!114 &7672250148822112916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3053245619600608602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b93b2c0701f8d547aa40095a8c17031, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0.25
+  speedClimb: 0
+  slowRotate: 1
+--- !u!114 &39001714581289674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3053245619600608602}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af1dea5f49249943acc07baf5fbd48b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oxygen: 100
+  energy: 100
+  Energy: {fileID: 0}
+  Oxygen: {fileID: 0}
 --- !u!136 &3836452472706095326
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1970,21 +2017,6 @@ CapsuleCollider:
   m_Height: 3.93
   m_Direction: 1
   m_Center: {x: 0, y: -1.14, z: 0.21}
---- !u!114 &7672250148822112916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3053245619600608602}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b93b2c0701f8d547aa40095a8c17031, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MainCamera: {fileID: 0}
-  speed: 0.25
-  slowRotate: 1
 --- !u!1 &3053245619600608604
 GameObject:
   m_ObjectHideFlags: 0
